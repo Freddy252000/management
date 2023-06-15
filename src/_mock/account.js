@@ -2,8 +2,8 @@
 
 const account = {
   displayName: 'Admin',
-  email: 'demo@gmail.com',
-  photoURL: '/assets/images/avatars/avatar_default.jpg',
+  email: 'Admin@gmail.com',
+  photoURL: '/assets/images/avatars/avatar_24.jpg',
 };
 
 export default account;

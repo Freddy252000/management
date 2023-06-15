@@ -5,8 +5,8 @@ import { DataGrid, GridDeleteIcon } from "@mui/x-data-grid";
 import { Edit, Edit as EditIcon } from "@mui/icons-material";
 
 import { useState } from "react";
-import Popup from "../components/popup/Popup";
-import Form from "../components/form/Form";
+// import Popup from "../components/popup/Popup";
+
 // import { UserListHead, UserListToolbar } from "../sections/@dashboard/user";
 
 // import Scrollbar from "../components/scrollbar";
@@ -28,28 +28,14 @@ const style = {
 
 
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
-  {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 90,
-  },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
+  { field: "id", headerName: "Category ID ", width: 100 },
+  { field: "firstName", headerName: "Category Name", width: 230 },
+  { field: "lastName", headerName: "Category Describe ", width: 400 },
+
   {
     field: "actions",
     headerName: "Actions",
-    width: 200,
+    width: 150,
     renderCell: (params) => (
       <>
         <Button
@@ -93,15 +79,15 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  { id: "C1", lastName: "Food", firstName: "Food description" },
+  { id: "C2", lastName: "Lannister", firstName: "Cersei" },
+  { id: "C3", lastName: "Lannister", firstName: "Jaime"},
+  { id:"C4", lastName: "Stark", firstName: "Arya" },
+  { id: "C5", lastName: "Targaryen", firstName: "Daenerys"},
+  { id:"C6", lastName: "Melisandre", firstName: null},
+  { id: "C7", lastName: "Clifford", firstName: "Ferrara"},
+  { id:"C8", lastName: "Frances", firstName: "Rossini"},
+  { id:"C9", lastName: "Roxie", firstName: "Harvey"},
 ];
 
 const CategoriesPage = () => {
@@ -129,6 +115,8 @@ const CategoriesPage = () => {
     console.log('Category Name:', categoryName);
     console.log('Category Description:', categoryDescription);
 
+    handleClose();
+
     // Add your logic to handle the form submission
   };
 
@@ -151,7 +139,7 @@ const CategoriesPage = () => {
 
           // startIcon={<Iconify icon="eva:plus-fill" />}
           >
-            New Categorie
+            New category
           </Button>
           <Modal
             open={open}
@@ -160,41 +148,41 @@ const CategoriesPage = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h5" component="h2"  style={{ fontFamily: 'Times New Roman' }}>
-              Product Add Category
+              <Typography id="modal-modal-title" variant="h5" component="h2" style={{ fontFamily: 'Times New Roman' }}>
+                Product Add Category
               </Typography>
-              <Typography id="modal-modal-description" variant="h8"  style={{ fontFamily: 'Times New Roman' }}>
-              Create new product Category
+              <Typography id="modal-modal-description" variant="h8" style={{ fontFamily: 'Times New Roman' }}>
+                Create new product Category
               </Typography>
               <form onSubmit={handleSubmit}>
-              <Box sx={{ mt: 2, mb: 2 }}>
-            <TextField
-              label="Category ID"
-              fullWidth
-              required
-              // Add any necessary props for the Category ID field
-            />
-            </Box>
-            <Box sx={{ mt: 2, mb: 2 }}>
-            <TextField
-              label="Category Name"
-              fullWidth
-              required
-              // Add any necessary props for the Category Name field
-            />
-            </Box>
-            <Box sx={{ mt: 2, mb: 2 }}>
-            <TextField
-              label="Category Description"
-              fullWidth
-              required
-              // Add any necessary props for the Category Description field
-            />
-            </Box>
-            <Button type="submit" variant="contained" color="primary">
-              Add Categories
-            </Button>
-          </form>
+                <Box sx={{ mt: 2, mb: 2 }}>
+                  <TextField
+                    label="Category ID"
+                    fullWidth
+                    required
+                  // Add any necessary props for the Category ID field
+                  />
+                </Box>
+                <Box sx={{ mt: 2, mb: 2 }}>
+                  <TextField
+                    label="Category Name"
+                    fullWidth
+                    required
+                  // Add any necessary props for the Category Name field
+                  />
+                </Box>
+                <Box sx={{ mt: 2, mb: 2 }}>
+                  <TextField
+                    label="Category Description"
+                    fullWidth
+                    required
+                  // Add any necessary props for the Category Description field
+                  />
+                </Box>
+                <Button type="submit" variant="contained" color="primary">
+                  Add Categories
+                </Button>
+              </form>
             </Box>
           </Modal>
 
@@ -220,9 +208,7 @@ const CategoriesPage = () => {
           />
         </div>
       </Container>
-      {/* <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
-        <Form />
-      </Popup> */}
+    
     </div>
   );
 };

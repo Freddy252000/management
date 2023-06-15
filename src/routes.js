@@ -12,6 +12,7 @@ import ProductsPage from "./pages/ProductsPage";
 import BrandPage from "./pages/BrandPage";
 import PurchesePage from "./pages/PurchesePage";
 import DashboardAppPage from "./pages/DashboardAppPage";
+import SalesReportPage from "./pages/SalesReportPage";
 
 // ----------------------------------------------------------------------
 
@@ -29,12 +30,10 @@ export default function Router() {
         { path: "brand", element: <BrandPage /> },
         { path: "purchese", element: <PurchesePage /> },
         { path: "return", element: <ReturnPage /> },
+        { path: "sales", element: <SalesReportPage /> },
       ],
     },
-    {
-      path: "login",
-      element: <LoginPage />,
-    },
+    
     {
       element: <SimpleLayout />,
       children: [
